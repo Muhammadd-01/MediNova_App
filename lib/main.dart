@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:medinova/theme/dark_mode_provider.dart';
 import 'home_screen.dart';
 
 void main() {
-  runApp(const MediNovaApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => DarkModeProvider(),
+      child: const MediNovaApp(),
+    ),
+  );
 }
 
 class MediNovaApp extends StatelessWidget {
@@ -14,7 +21,7 @@ class MediNovaApp extends StatelessWidget {
       title: 'MediNova',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.system,
+      themeMode: Provider.of<DarkModeProvider>(context).isDarkMode ? ThemeMode.dark : ThemeMode.light,
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
     );
