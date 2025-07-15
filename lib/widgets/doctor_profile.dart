@@ -31,16 +31,30 @@ class DoctorProfile extends StatelessWidget {
               backgroundImage: NetworkImage(imageUrl),
               radius: 48,
             ),
-            SizedBox(height: 12),
-            Text(name, style: Theme.of(context).textTheme.headline6),
-            Text(specialization),
-            SizedBox(height: 8),
-            Text('Available: $availability'),
-            Text('Phone: $phone'),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
+            Text(
+              name,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              specialization,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Available: $availability',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            Text(
+              'Phone: $phone',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            const SizedBox(height: 12),
             ElevatedButton(
-              onPressed: () {},
-              child: Text('Book Appointment'),
+              onPressed: () {
+                // TODO: integrate booking logic
+              },
+              child: const Text('Book Appointment'),
             ),
           ],
         ),
